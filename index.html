@@ -15,52 +15,37 @@
 </head>
 <body>
     <!-- Region Selection Screen -->
-    <div id="region-screen" class="region-screen" style="padding-top: 24px; padding-left: 24px; padding-right: 24px;">
-        <div class="developer-tag">개발자: 우성돌이</div>
-        <header class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; width: 100%; margin-bottom: 24px; background: transparent; border: none; box-shadow: none; padding: 0;">
-            <div class="logo-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; background: white; border-radius: 20px; padding: 12px; box-shadow: 0 10px 25px rgba(67, 56, 202, 0.15); width: 64px; height: 64px; flex-shrink: 0;">
-                <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; drop-shadow: 0 4px 6px rgba(0,0,0,0.1);" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#4f46e5" />
-                            <stop offset="100%" stop-color="#312e81" />
-                        </linearGradient>
-                        <linearGradient id="dropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#a5b4fc" />
-                            <stop offset="100%" stop-color="#4f46e5" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M50 5 C25 5 5 25 5 50 C5 75 50 95 50 95 C50 95 95 75 95 50 C95 25 75 5 50 5 Z" fill="url(#pinGrad)" />
-                    <circle cx="50" cy="42" r="24" fill="#ffffff" />
-                    <path d="M50 24 C50 24 40 37 40 44 C40 49.5 44.5 54 50 54 C55.5 54 60 49.5 60 44 C60 37 50 24 50 24 Z" fill="url(#dropGrad)" />
-                </svg>
-            </div>
-            <div class="title-wrapper" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-                <h1 style="font-size: 2.2rem; color: #1e3a8a; font-weight: 900; letter-spacing: -1.0px; margin: 0; line-height: 1.1;">급해용</h1>
-                <p style="font-size: 1rem; color: #6366f1; font-weight: 700; margin: 4px 0 0 0; letter-spacing: -0.5px;">화장실 찾기</p>
-            </div>
-        </header>
+    <div id="region-screen" class="region-screen" style="background: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 20px; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; box-sizing: border-box;">
+        
+        <!-- Top Bar: Hamburger Menu & Developer Tag -->
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" style="cursor: pointer;">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <div style="font-size: 0.85rem; color: #aaa; font-weight: 500;">개발자: 우성돌이</div>
+        </div>
 
-        <!-- 내 주변 찾기 메인 버튼 -->
-        <button id="quick-location-btn" class="quick-location-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Centered Main Logo -->
+        <h1 style="font-size: 3.8rem; color: #1e3a8a; font-weight: 900; letter-spacing: -2.5px; margin-top: 18vh; margin-bottom: 24px;">급해용</h1>
+
+        <!-- Search Bar (Naver Style: thin border, rectangular) -->
+        <form id="search-form" class="search-container" style="width: 90%; max-width: 450px; display: flex; border: 2px solid #a5b4fc; border-radius: 4px; background: white; margin-bottom: 10vh; box-shadow: none; flex-direction: row; align-items: center; justify-content: center; padding: 0;">
+            <input type="text" id="region-search-input" placeholder="검색어 또는 지역명 입력" style="flex: 1; border: none; outline: none; padding: 16px 14px; font-size: 1.1rem; color: #333; background: transparent; margin: 0; min-width: 0;">
+            <button type="submit" id="region-search-btn" class="search-btn" aria-label="검색" style="background: none; border: none; padding: 0 16px; color: #1e3a8a; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </form>
+
+        <!-- Current Location Button (Naver Green Dot Style adapted to Blue) -->
+        <button id="quick-location-btn" class="quick-location-btn" style="position: absolute; bottom: 40px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #3b82f6); border: none; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4); display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; flex-direction: column;">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <circle cx="12" cy="12" r="3"></circle>
             </svg>
-            현재 내위치 주변에서 찾기
         </button>
-
-        <div class="divider">
-            <span>또는 지역/동네 검색</span>
-        </div>
-
-        <!-- 검색창 UI (모바일 키보드의 '검색' 버튼 호환을 위해 form 사용) -->
-        <form id="search-form" class="search-container">
-            <input type="text" id="region-search-input" placeholder="지역 검색 (예: 서울 강남구)">
-            <button type="submit" id="region-search-btn" class="search-btn" aria-label="검색">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
-        </form>
+        <div style="position: absolute; bottom: 15px; font-size: 0.8rem; color: #666; font-weight: 600;">현재 내위치 주변에서 찾기</div>
 
         <div class="divider" style="margin-top: 10px;">
             <span>빠른 전국 주요 도시/도 선택</span>
