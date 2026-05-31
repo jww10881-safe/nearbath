@@ -19,11 +19,23 @@
         
         <!-- Top Bar: Hamburger Menu & Developer Tag -->
         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" style="cursor: pointer;">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+            <div class="top-logo-wrapper" style="display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; padding: 6px; box-shadow: 0 4px 12px rgba(67, 56, 202, 0.1);">
+                <svg viewBox="0 0 100 100" style="width: 28px; height: 28px;" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="topPinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#4f46e5" />
+                            <stop offset="100%" stop-color="#312e81" />
+                        </linearGradient>
+                        <linearGradient id="topDropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#a5b4fc" />
+                            <stop offset="100%" stop-color="#4f46e5" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 5 C25 5 5 25 5 50 C5 75 50 95 50 95 C50 95 95 75 95 50 C95 25 75 5 50 5 Z" fill="url(#topPinGrad)" />
+                    <circle cx="50" cy="42" r="24" fill="#ffffff" />
+                    <path d="M50 24 C50 24 40 37 40 44 C40 49.5 44.5 54 50 54 C55.5 54 60 49.5 60 44 C60 37 50 24 50 24 Z" fill="url(#topDropGrad)" />
+                </svg>
+            </div>
             <div style="font-size: 0.85rem; color: #aaa; font-weight: 500;">개발자: 우성돌이</div>
         </div>
 
