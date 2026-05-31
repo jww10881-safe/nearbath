@@ -31,15 +31,39 @@
         </button>
 
         <div class="divider">
-            <span>또는 지역 직접 선택</span>
+            <span>또는 지역/동네 검색</span>
+        </div>
+
+        <!-- 검색창 UI -->
+        <div class="search-container">
+            <input type="text" id="region-search-input" placeholder="예: 서울 강남구, 부산 해운대구">
+            <button id="region-search-btn" class="search-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+
+        <div class="divider" style="margin-top: 10px;">
+            <span>빠른 전국 주요 도시/도 선택</span>
         </div>
 
         <div class="region-list">
-            <button class="region-btn" data-lat="35.1461" data-lng="126.9231"><span>광주 동구</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-            <button class="region-btn" data-lat="35.1520" data-lng="126.8900"><span>광주 서구</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-            <button class="region-btn" data-lat="35.1329" data-lng="126.9024"><span>광주 남구</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-            <button class="region-btn" data-lat="35.1740" data-lng="126.9122"><span>광주 북구</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-            <button class="region-btn" data-lat="35.1396" data-lng="126.7936"><span>광주 광산구</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="37.5665" data-lng="126.9780"><span>서울특별시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.1796" data-lng="129.0756"><span>부산광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.8714" data-lng="128.6014"><span>대구광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="37.4563" data-lng="126.7052"><span>인천광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.1595" data-lng="126.8526"><span>광주광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="36.3504" data-lng="127.3845"><span>대전광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.5384" data-lng="129.3114"><span>울산광역시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="36.4800" data-lng="127.2890"><span>세종특별자치시</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="37.2750" data-lng="127.0096"><span>경기도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="37.8853" data-lng="127.7298"><span>강원특별자치도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="36.6356" data-lng="127.4913"><span>충청북도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="36.6588" data-lng="126.6728"><span>충청남도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.8202" data-lng="127.1088"><span>전북특별자치도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="34.8161" data-lng="126.4629"><span>전라남도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="36.5759" data-lng="128.5056"><span>경상북도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="35.2383" data-lng="128.6922"><span>경상남도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            <button class="region-btn" data-lat="33.4890" data-lng="126.4983"><span>제주특별자치도</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         </div>
     </div>
 

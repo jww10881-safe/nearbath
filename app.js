@@ -8,6 +8,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // 광주광역시청 기본 좌표
     const defaultLocation = [35.1595, 126.8526];
     
+    // --- 검색창 기능 (Nominatim 오픈소스 지오코딩 활용) ---
+    const searchInput = document.getElementById('region-search-input');
+    const searchBtn = document.getElementById('region-search-btn');
+
+    async function searchRegion() {
+        const query = searchInput.value.trim();
+        if (!query) return;
+
+        try {
+            searchBtn.style.opacity = '0.5';
+            // OpenStreetMap Nominatim API 호출 (무료/오픈소스)
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=kr`);
+            const data = await response.json();
+
+            if (data && data.length > 0) {
+                const lat = parseFloat(data[0].lat);
+                const lng = parseFloat(data[0].lon);
+
+                map.flyTo([lat, lng], 14, { duration: 1 });
+                
+                regionScreen.classList.add('hidden');
+                mapContainer.classList.remove('hidden');
+                mapUi.classList.remove('hidden');
+                
+                // 데이터 로드는 1번만 실행됨 (최초 로드 시점)
+                if (globalRestroomData.length === 0) {
+                    loadRestroomData();
+                } else {
+                    renderMarkers(globalRestroomData);
+                }
+            } else {
+                alert("검색 결과가 없습니다. 시/도, 구/군, 동 이름을 정확히 입력해 주세요. (예: 서울 강남구)");
+            }
+        } catch (error) {
+            console.error("검색 중 오류 발생:", error);
+            alert("검색 중 오류가 발생했습니다.");
+        } finally {
+            searchBtn.style.opacity = '1';
+        }
+    }
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', searchRegion);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchRegion();
+        });
+    }
+
+    // --- 지역 선택 화면 전환 ---
     // --- 지도 초기화 ---
     const map = L.map('map', {
         zoomControl: false // UI 커스텀을 위해 기본 줌 컨트롤 숨김
