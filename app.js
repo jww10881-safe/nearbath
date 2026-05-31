@@ -26,11 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lat = parseFloat(data[0].lat);
                 const lng = parseFloat(data[0].lon);
 
-                map.flyTo([lat, lng], 14, { duration: 1 });
-                
                 regionScreen.classList.add('hidden');
                 mapContainer.classList.remove('hidden');
                 mapUi.classList.remove('hidden');
+                
+                // 숨겨져 있던 지도 컨테이너가 나타난 직후에 크기를 재계산해야 지도가 깨지지 않음
+                map.invalidateSize();
+                map.flyTo([lat, lng], 14, { duration: 1 });
                 
                 // 데이터 로드는 1번만 실행됨 (최초 로드 시점)
                 if (globalRestroomData.length === 0) {
