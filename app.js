@@ -49,10 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (searchBtn && searchInput) {
-        searchBtn.addEventListener('click', searchRegion);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') searchRegion();
+    const searchForm = document.getElementById('search-form');
+
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // 폼 새로고침 방지
+            searchRegion();
+            // 모바일 키보드 숨기기 (포커스 해제)
+            searchInput.blur();
         });
     }
 
