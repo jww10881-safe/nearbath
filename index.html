@@ -15,15 +15,29 @@
 </head>
 <body>
     <!-- Region Selection Screen -->
-    <div id="region-screen" class="region-screen" style="padding-top: 20px;">
+    <div id="region-screen" class="region-screen" style="padding-top: 24px; padding-left: 24px; padding-right: 24px;">
         <div class="developer-tag">개발자: 우성돌이</div>
-        <header class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; padding: 0 24px; width: 100%; align-self: flex-start; background: transparent; border: none; box-shadow: none;">
-            <div class="logo-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; background: white; border-radius: 24px; padding: 10px; box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);">
-                <img src="./logo.png" alt="급해용 로고" class="app-logo" style="width: 54px; height: 54px; object-fit: contain;">
+        <header class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; width: 100%; margin-bottom: 24px; background: transparent; border: none; box-shadow: none; padding: 0;">
+            <div class="logo-wrapper" style="position: relative; display: flex; align-items: center; justify-content: center; background: white; border-radius: 20px; padding: 12px; box-shadow: 0 10px 25px rgba(67, 56, 202, 0.15); width: 64px; height: 64px; flex-shrink: 0;">
+                <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; drop-shadow: 0 4px 6px rgba(0,0,0,0.1);" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#4f46e5" />
+                            <stop offset="100%" stop-color="#312e81" />
+                        </linearGradient>
+                        <linearGradient id="dropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#a5b4fc" />
+                            <stop offset="100%" stop-color="#4f46e5" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 5 C25 5 5 25 5 50 C5 75 50 95 50 95 C50 95 95 75 95 50 C95 25 75 5 50 5 Z" fill="url(#pinGrad)" />
+                    <circle cx="50" cy="42" r="24" fill="#ffffff" />
+                    <path d="M50 24 C50 24 40 37 40 44 C40 49.5 44.5 54 50 54 C55.5 54 60 49.5 60 44 C60 37 50 24 50 24 Z" fill="url(#dropGrad)" />
+                </svg>
             </div>
             <div class="title-wrapper" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-                <h1 style="font-size: 1.8rem; color: #1e3a8b; font-weight: 900; letter-spacing: -1.0px; margin: 0; line-height: 1.1;">급해용</h1>
-                <p style="font-size: 0.95rem; color: #6366f1; font-weight: 700; margin: 4px 0 0 0; letter-spacing: -0.5px;">화장실 찾기</p>
+                <h1 style="font-size: 2.2rem; color: #1e3a8a; font-weight: 900; letter-spacing: -1.0px; margin: 0; line-height: 1.1;">급해용</h1>
+                <p style="font-size: 1rem; color: #6366f1; font-weight: 700; margin: 4px 0 0 0; letter-spacing: -0.5px;">화장실 찾기</p>
             </div>
         </header>
 
