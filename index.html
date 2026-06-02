@@ -15,38 +15,25 @@
 </head>
 <body>
     <!-- Region Selection Screen -->
-    <div id="region-screen" class="region-screen" style="background: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 20px; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; box-sizing: border-box;">
+    <div id="region-screen" class="region-screen" style="display: flex; flex-direction: column; align-items: center; padding: 20px; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; box-sizing: border-box;">
         
         <!-- Top Bar: Hamburger Menu & Developer Tag -->
         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
-            <div class="top-logo-wrapper" style="display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; padding: 6px; box-shadow: 0 4px 12px rgba(67, 56, 202, 0.1);">
-                <svg viewBox="0 0 100 100" style="width: 28px; height: 28px;" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="topPinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#4f46e5" />
-                            <stop offset="100%" stop-color="#312e81" />
-                        </linearGradient>
-                        <linearGradient id="topDropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#a5b4fc" />
-                            <stop offset="100%" stop-color="#4f46e5" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M50 5 C25 5 5 25 5 50 C5 75 50 95 50 95 C50 95 95 75 95 50 C95 25 75 5 50 5 Z" fill="url(#topPinGrad)" />
-                    <circle cx="50" cy="42" r="24" fill="#ffffff" />
-                    <path d="M50 24 C50 24 40 37 40 44 C40 49.5 44.5 54 50 54 C55.5 54 60 49.5 60 44 C60 37 50 24 50 24 Z" fill="url(#topDropGrad)" />
-                </svg>
+            <div class="top-logo-wrapper" style="display: flex; align-items: center; justify-content: center; background: var(--am-color-canvas-white); border-radius: 12px; padding: 6px; box-shadow: 0 4px 12px rgba(27, 41, 120, 0.1);">
+                <img src="./logo.png?v=2" alt="로고" style="width: 28px; height: 28px; object-fit: contain; mix-blend-mode: multiply;">
             </div>
             <div style="font-size: 0.85rem; color: #aaa; font-weight: 500;">개발자: 우성돌이</div>
         </div>
 
         <!-- Centered Main Logo & Subtitle -->
-        <div style="text-align: center; margin-top: 12vh; margin-bottom: 24px;">
-            <h1 style="font-size: 3.8rem; color: #1e3a8a; font-weight: 900; letter-spacing: -2.5px; margin: 0;">급해용</h1>
-            <p style="font-size: 1.15rem; color: #6366f1; font-weight: 700; margin: 8px 0 0 0; letter-spacing: -0.5px;">공중화장실 찾기</p>
+        <div style="text-align: center; margin-top: 10vh; margin-bottom: 24px; display: flex; flex-direction: column; align-items: center;">
+            <img src="./logo.png?v=2" alt="메인 로고" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 16px; mix-blend-mode: multiply;">
+            <h1 style="font-size: 3.8rem; color: var(--am-color-astral-deep); font-family: var(--am-font-twk-lausanne); font-weight: 900; letter-spacing: -2.5px; margin: 0;">급해용</h1>
+            <p style="font-size: 1.15rem; color: var(--am-color-digital-mist); font-family: var(--am-font-neo-sans-pro); font-weight: 700; margin: 8px 0 0 0; letter-spacing: -0.5px;">공중화장실 찾기</p>
         </div>
 
         <!-- Current Location Button (Simple Style below Logo) -->
-        <button id="quick-location-btn" class="quick-location-btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 32px; background: #6366f1; color: white; padding: 12px 24px; border-radius: 30px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);">
+        <button id="quick-location-btn" class="quick-location-btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 32px; background: var(--am-color-astral-deep); color: var(--am-color-canvas-white); padding: 12px 24px; border-radius: 30px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(27, 41, 120, 0.3);">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
@@ -55,9 +42,9 @@
         </button>
 
         <!-- Search Bar (Naver Style: thin border, rectangular) -->
-        <form id="search-form" class="search-container" style="width: 90%; max-width: 450px; display: flex; border: 2px solid #a5b4fc; border-radius: 4px; background: white; margin-bottom: 10vh; box-shadow: none; flex-direction: row; align-items: center; justify-content: center; padding: 0;">
-            <input type="text" id="region-search-input" placeholder="검색어 또는 지역명 입력" style="flex: 1; border: none; outline: none; padding: 16px 14px; font-size: 1.1rem; color: #333; background: transparent; margin: 0; min-width: 0;">
-            <button type="submit" id="region-search-btn" class="search-btn" aria-label="검색" style="background: none; border: none; padding: 0 16px; color: #1e3a8a; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <form id="search-form" class="search-container" style="width: 90%; max-width: 450px; display: flex; border: 2px solid var(--am-color-digital-mist); border-radius: 4px; background: var(--am-color-canvas-white); margin-bottom: 10vh; box-shadow: none; flex-direction: row; align-items: center; justify-content: center; padding: 0;">
+            <input type="text" id="region-search-input" placeholder="검색어 또는 지역명 입력" style="flex: 1; border: none; outline: none; padding: 16px 14px; font-size: 1.1rem; color: var(--am-color-void-black); background: transparent; margin: 0; min-width: 0;">
+            <button type="submit" id="region-search-btn" class="search-btn" aria-label="검색" style="background: none; border: none; padding: 0 16px; color: var(--am-color-astral-deep); cursor: pointer; display: flex; align-items: center; justify-content: center;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
         </form>
